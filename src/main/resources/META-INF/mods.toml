@@ -29,7 +29,7 @@ displayName="Labr" #mandatory
 # A text field displayed in the mod UI
 credits="Labr" #optional
 # A text field displayed in the mod UI
-authors="Labr contributors" #optional
+authors="emirkmo@github.com, Leo Uthas Karamehmetoglu" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 Randomizes natural Pixelmon wild spawns by replacing each spawning Pokemon with a uniformly random species.
