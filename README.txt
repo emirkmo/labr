@@ -1,3 +1,19 @@
+# labr - A pixelmon wild spawn randomizer mod
+
+## Development
+
+We used intellij IDEA to develop this mod. Requires Java 8 SDK.
+
+```sh
+git clone https://github.com/emirkmo/labr.git
+cd labr
+
+./gradlew genIntellijRuns
+./gradlew build
+# If dependecy changes:
+# ./gradlew --refresh-dependencies build
+./gradlew runServer
+```
 
 Source installation information for modders
 -------------------------------------------

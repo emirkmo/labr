@@ -1,4 +1,4 @@
-package com.example.labr;
+package com.github.emirkmo.labr;
 
 import com.pixelmonmod.pixelmon.api.pokemon.species.Pokedex;
 import com.pixelmonmod.pixelmon.api.pokemon.species.Species;
@@ -16,6 +16,10 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class PixelmonSpawnRandomizerTest {
+    private static Species species(final String name, final int dex) {
+        return new Species(name, dex);
+    }
+
     private Species[] originalPokedex;
 
     @Before
@@ -66,10 +70,6 @@ public class PixelmonSpawnRandomizerTest {
 
         assertSame(firstPool, randomizer.getSpeciesPool());
         assertEquals(Collections.singletonList(eevee), randomizer.getSpeciesPool());
-    }
-
-    private static Species species(final String name, final int dex) {
-        return new Species(name, dex);
     }
 
     private static void assertUnmodifiable(final List<Species> pool) {

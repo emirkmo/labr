@@ -1,4 +1,4 @@
-package com.example.labr;
+package com.github.emirkmo.labr;
 
 import com.pixelmonmod.pixelmon.Pixelmon;
 import net.minecraftforge.fml.ExtensionPoint;

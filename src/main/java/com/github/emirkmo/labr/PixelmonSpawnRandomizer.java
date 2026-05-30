@@ -1,4 +1,4 @@
-package com.example.labr;
+package com.github.emirkmo.labr;
 
 import com.pixelmonmod.api.pokemon.PokemonSpecificationProxy;
 import com.pixelmonmod.pixelmon.api.events.spawning.SpawnEvent;
