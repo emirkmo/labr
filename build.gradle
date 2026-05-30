@@ -1,3 +1,5 @@
+import java.util.zip.ZipFile
+
 buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net' }
@@ -189,13 +191,13 @@ jar {
     }
 }
 
-task verifyModJar {
+tasks.register('verifyModJar') {
     dependsOn 'reobfJar'
 
     doLast {
         def jarFile = tasks.jar.archiveFile.get().asFile
         def entries = [] as Set
-        new java.util.zip.ZipFile(jarFile).withCloseable { zip ->
+        new ZipFile(jarFile).withCloseable { zip ->
             zip.entries().each { entries.add(it.name) }
         }
 
