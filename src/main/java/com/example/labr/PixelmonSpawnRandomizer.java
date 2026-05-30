@@ -50,34 +50,10 @@ final class PixelmonSpawnRandomizer {
             replacement.setShiny(original.isShiny());
         }
 
-        Labr.LOGGER.debug(
-            "Pixelmon spawn reroll before replacement: entityId={}, entityUuid={}, actionPokemon={}, entityPokemon={}",
-            entity.getId(),
-            entity.getUUID(),
-            describePokemon(action.pokemon),
-            describePokemon(original)
-        );
-
         action.pokemon = replacement;
         entity.setPokemon(replacement);
 
-        final Pokemon transformed = entity.getPokemon();
-        Labr.LOGGER.info(
-            "Randomized Pixelmon spawn: entityId={}, pokemonUuid={} -> {}, species={} -> {}",
-            entity.getId(),
-            getPokemonUuid(original),
-            getPokemonUuid(transformed),
-            getSpeciesName(original),
-            getSpeciesName(transformed)
-        );
-        Labr.LOGGER.debug(
-            "Pixelmon spawn reroll after replacement: entityId={}, entityUuid={}, actionPokemon={}, entityPokemon={}, sameReplacementInstance={}",
-            entity.getId(),
-            entity.getUUID(),
-            describePokemon(action.pokemon),
-            describePokemon(transformed),
-            transformed == replacement
-        );
+        Labr.LOGGER.info("Randomized Pixelmon spawn: {} -> {}", getSpeciesName(original), replacementSpecies.getName());
     }
 
     private Species pickRandomSpecies() {
@@ -136,29 +112,5 @@ final class PixelmonSpawnRandomizer {
         }
 
         return pokemon.getSpecies().getName();
-    }
-
-    private static String getPokemonUuid(final Pokemon pokemon) {
-        if (pokemon == null || pokemon.getUUID() == null) {
-            return "unknown";
-        }
-
-        return pokemon.getUUID().toString();
-    }
-
-    private static String describePokemon(final Pokemon pokemon) {
-        if (pokemon == null) {
-            return "null";
-        }
-
-        return String.format(
-            "%s{pokemonUuid=%s, level=%d, shiny=%s, health=%d, ability=%s}",
-            getSpeciesName(pokemon),
-            getPokemonUuid(pokemon),
-            pokemon.getPokemonLevel(),
-            pokemon.isShiny(),
-            pokemon.getHealth(),
-            pokemon.getAbilityName()
-        );
     }
 }
