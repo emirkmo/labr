@@ -15,6 +15,8 @@ cd labr
 ./gradlew runServer
 ```
 
+The base template is Forge MDK for 1.16.5.
+
 Source installation information for modders
 -------------------------------------------
 This code follows the Minecraft Forge installation methodology. It will apply
